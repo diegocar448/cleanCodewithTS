@@ -1,6 +1,7 @@
 import type { Config } from '@jest/types';
 import ParkedCar from '../entity/ParkedCar';
 import ParkingLotRepository from '../repository/ParkingLotRepository';
+import GetParkingLot from './GetParkingLot';
 
 
 export default class EnterParkingLot {
@@ -14,7 +15,7 @@ export default class EnterParkingLot {
 
     async execute(code: string, plate: string, date: Date) {
         const parkingLot = await this.parkingLotRepository.getParkingLot(code);
-        const parkedCar = new ParkedCar(code, plate, date);
+        const parkedCar = new ParkedCar(code, plate, date);        
         if (!parkingLot.isOpen(parkedCar.date)) throw new Error("The parking lot is closed");
         await this.parkingLotRepository.saveParkedCar(parkedCar.code, parkedCar.plate, parkedCar.date);
         return parkingLot;
