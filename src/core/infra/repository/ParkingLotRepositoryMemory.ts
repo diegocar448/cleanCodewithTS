@@ -8,7 +8,7 @@ export default class ParkingLotRepositoryMemory implements ParkingLotRepository 
         { code: "shopping", capacity: 5, open_hour: 8, close_hour: 22, occupiedSpaces: 0 }
     ];
     parkedCars = [];
-
+  
     getParkingLot(code: string): Promise<ParkingLot> {
         const parkingLotData = this.parkingLots.find(parkingLot => parkingLot.code === code)
         const occupiedSpaces = this.parkedCars.length;

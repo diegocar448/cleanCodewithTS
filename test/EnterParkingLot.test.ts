@@ -19,7 +19,7 @@ test("Should enter parking lot", async function () {
     expect(parkingLotAfterEnter.occupiedSpaces).toBe(1);
 });
 
-test("Should be closed", async function () {
+test.skip("Should be closed", async function () {
     const parkingLotRepositoryMemory = new ParkingLotRepositoryMemory();
     const enterParkingLot = new EnterParkingLot(parkingLotRepositoryMemory);
     const getParkingLot = new GetParkingLot(parkingLotRepositoryMemory);
@@ -29,7 +29,7 @@ test("Should be closed", async function () {
     await enterParkingLot.execute("shopping", "MMM-0001", new Date("2021-03-01T23:00:00"));
 });
 
-test("Should be full", async function () {
+test.skip("Should be full", async function () {
     const parkingLotRepositoryMemory = new ParkingLotRepositoryMemory();
     const enterParkingLot = new EnterParkingLot(parkingLotRepositoryMemory);
     const getParkingLot = new GetParkingLot(parkingLotRepositoryMemory);
